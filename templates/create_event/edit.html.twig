@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification Evenement
+{% endblock %}
+
+{% block body %}
+
+<section class="pt-6 pt-md-8">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-12 d-flex justify-content-center">
+				{% for message in app.flashes('success') %}
+					<div class="alert alert-success">
+						{{ message }}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
+
+
+	<h1>Modification de l'evenement</h1>
+	<div class="col-sm-12">
+		{{ form_start(form) }}
+		<div class="form-group">
+			{{ form_row(form.nom, {'attr': {'class': 'form-control'}}) }}
+		</div>
+		<div class="form-group">
+			{{ form_row(form.description, {'attr': {'class': 'form-control'}}) }}
+		</div>
+		<div class="form-group">
+			{{ form_row(form.dateDebut) }}
+		</div>
+		<div class="form-group">
+			{{ form_row(form.dateFin) }}
+		</div>
+		<div class="form-group">
+			{{ form_row(form.adresse, {'attr': {'class': 'form-control'}}) }}
+		</div>
+		<div class="form-group">
+			{{ form_row(form.codePostal, {'attr': {'class': 'form-control'}}) }}
+		</div>
+		<div class="form-group">
+			{{ form_row(form.ville, {'attr': {'class': 'form-control'}}) }}
+		</div>
+		<div class="form-group">
+			{{ form_row(form.prix, {'attr': {'class': 'form-control'}}) }}
+		</div>
+		<div class="form-group">
+			{{ form_row(form.imageFile, {'attr': {'class': 'form-control'}}) }}
+		</div>
+		<div class="form-group mt-2 mb-2">
+			<button class="btn btn-success" id="bouton-or">{{ button_label|default('Modifier') }}</button>
+			{{ include('create_event/_delete_form.html.twig') }}
+			<a href="{{ path('user') }}" class="btn btn-dark">
+				Retour a la liste
+			</a>
+		</div>
+		{{ form_end(form) }}
+		
+
+	</div>
+	{# {{ include('create_event/_form.html.twig', {'button_label': 'Update'}) }} #}
+
+	{# <a class="btn btn-dark" href="{{ path('create_event_index') }}">Retour a la liste</a> #}
+
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Modifications du mot de passe
+{% endblock %}
+
+{% block body %}
+	
+		<div class="mb-3 row">
+			{% for message in app.flashes('error') %}
+				<div class="alert alert-danger" role="alert">
+					{{ message }}
+				</div>
+			{% endfor %}
+
+			<h1>
+				Modification du mot de passe
+			</h1>
+
+			<form method="post">
+
+				<div class="mb-3">
+					<label for="pass" class="form-label">
+						Nouveau mot de passe
+					</label>
+					<input type="password" name="pass" class="form-control" id="pass"></div>
+				<div class="mb-3">
+					<label for="pass2" class="form-label">
+						Confirmer le nouveau password
+					</label>
+					<input type="password" name="pass2" class="form-control" id="pass2"></div>
+				<div>
+					<button class="btn btn-primary" id="bouton-or">
+						Valider
+					</button>
+					<a href="{{ path('user') }}" class="btn btn-dark">
+						Retour a la liste
+					</a>
+				</div>
+			</form>
+		</div>
+{% endblock %}

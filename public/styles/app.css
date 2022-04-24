@@ -1,0 +1,341 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+@font-face {
+  font-family: "Seagram";
+  src: local("Seagram_tfb"), url(police/Seagram_tfb.ttf);
+  font-weight: bold;
+}
+
+@font-face {
+  font-family: "Charm-Bold";
+  src: local("Charm-Bold"), url(police/Charm-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Charm-Regular";
+  src: local("Charm-Regular"), url(police/Charm-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Cormorant-Bold";
+  src: local("CormorantGaramond-Bold"), url(police/CormorantGaramond-Bold.ttf);
+}
+
+@font-face {
+  font-family: "Cormorant-BoldItalic";
+  src: local("CormorantGaramond-BoldItalic"), url(police/CormorantGaramond-BoldItalic.ttf);
+}
+
+@font-face {
+  font-family: "Cormorant-Italic";
+  src: local("CormorantGaramond-Italic"), url(police/CormorantGaramond-Italic.ttf);
+}
+
+@font-face {
+  font-family: "Cormorant-Light";
+  src: local("CormorantGaramond-Light"), url(police/CormorantGaramond-Light.ttf);
+}
+
+@font-face {
+  font-family: "Cormorant-LightItalic";
+  src: local("CormorantGaramond-LightItalic"), url(police/CormorantGaramond-LightItalic.ttf);
+}
+
+@font-face {
+  font-family: "Cormorant-Medium";
+  src: local("CormorantGaramond-Medium"), url(police/CormorantGaramond-Medium.ttf);
+}
+
+@font-face {
+  font-family: "Cormorant-MediumItalic";
+  src: local("CormorantGaramond-MediumItalic"), url(police/CormorantGaramond-MediumItalic.ttf);
+}
+
+@font-face {
+  font-family: "Cormorant-Regular";
+  src: local("CormorantGaramond-Regular"), url(police/CormorantGaramond-Regular.ttf);
+}
+
+@font-face {
+  font-family: "Cormorant-SemiBold";
+  src: local("CormorantGaramond-SemiBold"), url(police/CormorantGaramond-SemiBold.ttf);
+}
+
+@font-face {
+  font-family: "Cormorant-SemiBoldItalic";
+  src: local("CormorantGaramond-SemiBoldItalic"), url(police/CormorantGaramond-SemiBoldItalic.ttf);
+}
+
+html,
+body {
+  height: 100%;
+}
+
+/* body {
+  background: #ffffff;
+  height: 100%;
+} */
+
+img {
+  max-width: 100%;
+  -webkit-transition: -webkit-transform 0.1s;
+  transition: -webkit-transform 0.1s;
+  transition: transform 0.1s;
+  transition: transform 0.1s, -webkit-transform 0.1s;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* img:hover { */
+  /* IE 9 */
+  /* -webkit-transform: scale(1.2); */
+  /* Safari 3-8 */
+  /* transform: scale(1.2); */
+/* } */
+
+/* ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+} */
+
+a {
+  text-decoration: none;
+}
+
+h1 {
+  font-family: "Charm-Bold";
+  text-align: center;
+}
+
+h2,
+h3,
+h4 {
+  font-family: "Charm-Bold";
+  font-size: 40px !important;
+  text-align: center;
+}
+
+#info{
+  text-align: initial ;
+}
+#bouton-bleu {
+  font-size: 20px;
+  font-weight: 400;
+  /* letter-spacing: 1px; */
+  background: #273680;
+  color: #fff;
+  border: 1px solid #273680;
+  top: 20px;
+  right: 15px;
+  padding: 0 16px;
+  line-height: 37px;
+  height: 40px;
+  font-family: "Cormorant-SemiBold";
+  text-align: center;
+}
+
+#bouton-rouge {
+  font-size: 20px;
+  font-weight: 400;
+  /* letter-spacing: 1px; */
+  background: #65140e;
+  color: #fff;
+  border: 1px solid #65140e;
+  top: 20px;
+  right: 15px;
+  padding: 0 16px;
+  line-height: 37px;
+  height: 40px;
+  font-family: "Cormorant-SemiBold";
+}
+
+#bouton-or {
+  font-size: 20px;
+  font-weight: 400;
+  /* letter-spacing: 1px; */
+  background: #967842;
+  color: #fff;
+  border: 1px solid #967842;
+  top: 20px;
+  right: 15px;
+  padding: 0 16px;
+  line-height: 37px;
+  height: 40px;
+  font-family: "Cormorant-SemiBold";
+}
+
+#even {
+  border: 1px solid #a8a7a7;
+}
+
+.even-date {
+  background: #f7f7f7;
+  padding: 12px 14px 8px;
+  margin-bottom: 12px;
+  vertical-align: baseline;
+  text-align: center;
+}
+
+.even-adresse {
+  background: #f7f7f7;
+  padding: 12px 14px 8px;
+  margin-bottom: 12px;
+  vertical-align: baseline;
+  text-align: center;
+}
+
+.even-prix {
+  background: #f7f7f7;
+  padding: 12px 14px 8px;
+  margin-bottom: 12px;
+  vertical-align: baseline;
+  text-align: center;
+}
+
+#even-border {
+  border-left: 1px solid #a8a7a7;
+  padding: 20px 30px;
+}
+
+.detail-even {
+  border: 1px solid #a8a7a7;
+  margin-bottom: 30px;
+  padding: 20px 30px;
+  text-align: center;
+}
+
+.detail-date {
+  background: #f7f7f7;
+  padding: 12px 14px 8px;
+  margin-bottom: 12px;
+  vertical-align: baseline;
+  text-align: center;
+}
+
+.detail-adresse {
+  background: #f7f7f7;
+  padding: 12px 14px 8px;
+  margin-bottom: 12px;
+  vertical-align: baseline;
+  text-align: center;
+}
+
+.detail-prix {
+  background: #f7f7f7;
+  padding: 12px 14px 8px;
+  margin-bottom: 12px;
+  vertical-align: baseline;
+  text-align: center;
+}
+
+#navstyle {
+  font-family: "Seagram";
+  font-size: 25px;
+  background: #9b1b19;
+  /* background: radial-gradient(circle, #ffd752 35%, #d79f00 100%); */
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+}
+
+.nav-item {
+  margin-right: 40px;
+}
+
+.footer-basic {
+  padding: 40px 0;
+}
+
+.footer-basic ul {
+  padding: 0;
+  list-style: none;
+  text-align: center;
+  font-size: 20px;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.footer-basic li {
+  padding: 0 10px;
+}
+
+.footer-basic ul a {
+  color: inherit;
+  text-decoration: none;
+  /* opacity: 0.8; */
+}
+
+/* .footer-basic ul a:hover {
+  opacity: 1;
+} */
+
+.footer-basic .social {
+  text-align: center;
+  padding-bottom: 25px;
+}
+
+.footer-basic .social>a {
+  font-size: 25px;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+  margin: 0 8px;
+  color: inherit;
+  opacity: 0.75;
+}
+
+.footer-basic .social>a:hover {
+  opacity: 0.9;
+}
+
+.copyright {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+
+#com-Style {
+  font-family: "Cormorant-Regular";
+}
+
+#contenue {
+  min-height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+
+footer {
+  font-family: "Seagram";
+  font-size: 25px;
+  color: white;
+  background: #9b1b19;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* padding-top:50px; */
+}
+
+.copyright {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 15px;
+  margin-bottom: 0
+}
+
+#text{
+  font-family: "Cormorant-Regular";
+  text-align: center;
+}

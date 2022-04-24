@@ -1,0 +1,148 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	Profile de
+	{{ app.user.pseudo }}
+{% endblock %}
+
+{% block body %}
+	<div class="row mt-3">
+		<ul class="nav nav-tabs" id="myTab" role="tablist">
+			<li class="nav-item" role="presentation">
+				<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">
+					Mes information
+				</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="evenement-tab" data-bs-toggle="tab" data-bs-target="#evenement" type="button" role="tab" aria-controls="evenement" aria-selected="false">
+					Mes evenements
+				</button>
+			</li>
+		</ul>
+		<div class="tab-content mt-2" id="myTabContent">
+			<div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+				{% for message in app.flashes('message') %}
+					<div class="alert alert-success mt-2" role="alert">
+						{{message}}
+					</div>
+				{% endfor %}
+				<div class="row mt-5">
+				<div class="col-5 mb-5">
+				{% if app.user.avatar.imageName is defined and app.user.avatar.imageName is not null %}
+				<img src="{{ asset('images/avatars/' ~  app.user.avatar.imageName )|imagine_filter('echelle') }}" alt="">
+				{% endif %}
+				</div>
+				<div class="col-5">
+				<h2 id="info">Profile de
+					{{ app.user.pseudo}}
+				</h2>
+				<div class="mt-2">
+					<strong>Pseudo :</strong>
+					{{ app.user.pseudo }}
+				</div>
+				<div class="mt-2">
+					<strong>Nom :</strong>
+					{{ app.user.nom }}
+				</div>
+				<div class="mt-2">
+					<strong>Prénom :</strong>
+					{{ app.user.prenom }}
+				</div>
+				<div class="mt-2">
+					<strong>E-mail :</strong>
+					{{ app.user.email }}
+				</div>
+				<div class="mt-2">
+					<strong>Adresse :</strong>
+					{{ app.user.adresse }}
+				</div>
+				<div class="mt-2">
+					<strong>Code Postale :</strong>
+					{{ app.user.codePostal }}
+				</div>
+				<div class="mt-2">
+					<strong>Ville :</strong>
+					{{ app.user.ville }}
+				</div>
+				</div>
+				</div>
+				<div class="mt-2 mb-2">
+					<a class="btn btn-primary" id="bouton-bleu" href="{{ path('user_profil_modifier') }}" role="button">
+						Modifier le profil
+					</a>
+					<a class="btn btn-primary" id="bouton-rouge" href="{{ path('user_pass_modifier') }}" role="button">
+						Modifier le mot de passe
+					</a>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="evenement" role="tabpanel" aria-labelledby="evenement-tab">
+				<div>
+					<h2>Evenement de
+						{{ app.user.pseudo}}({{app.user.evenements|length}})</h2>
+				</div>
+				{% for evenement in app.user.evenements %}
+					<div class="row mt-3" id="even">
+
+						<div class="col-8">
+
+							<div class="text-center">
+								<h2>
+									{{ evenement.nom }}
+								</h2>
+							</div>
+
+							<img src="{{ vich_uploader_asset(evenement, 'imageFile') }}" alt="">
+
+							<div class="mt-5" id="text">
+								{{ evenement.description|u.truncate(500, '...', false)|raw }}
+							</div>
+
+						</div>
+
+						<div class="col-4 mt-5">
+		<div class="detail-even">
+			<div class="detail-date">
+                <div>
+                    <i class="far fa-calendar-alt"></i>
+                </div>
+                {{ evenement.dateDebut|date('d-m-Y') }}
+                au
+                {{ evenement.dateFin|date('d-m-Y') }}
+		    </div>
+            <div class="even-adresse">
+                <div>
+                    <div>
+						<i class="fas fa-map-marked-alt"></i>
+					</div>
+                    {{ evenement.adresse }}
+                </div>
+                <div>
+                    {{ evenement.codePostal }}
+                    {{ evenement.ville }}
+                </div>
+            </div>
+            <div class="even-prix">
+                <div>
+					<i class="far fa-money-bill-alt"></i>
+				</div>
+                {{ evenement.prix }}
+                €
+            </div>
+	    </div>
+    </div>
+						<div class="ms-2 mb-4">
+							<a class="btn btn-info" id="bouton-bleu" href="{{ path('user-details',{'slug': evenement.slug}) }}">
+								detail
+							</a>
+							<a class="btn btn-warning" id="bouton-rouge" href="{{ path('create_event_edit', {'id': evenement.id}) }}">Modification</a>
+						</div>
+					</div>
+
+				{% endfor %}
+
+			</div>
+			
+		</div>
+
+	</div>
+{% endblock %}

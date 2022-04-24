@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    New Evenement
+{% endblock %}
+
+{% block body %}
+
+    <section class="pt-6 pt-md-8">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-12 d-flex justify-content-center">
+                    {% for message in app.flashes('success') %}
+                        <div class="alert alert-success">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <h1>
+        Create new Evenement
+    </h1>
+
+    {{ include('create_event/_form.html.twig') }}
+
+    <a href="{{ path('create_event_index') }}">
+        Retour
+    </a>
+{% endblock %}

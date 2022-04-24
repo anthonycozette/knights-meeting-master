@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	calendrier des evenements
+{% endblock %}
+
+{% block body %}
+	<h1>
+		Tous nos jeux grandeur nature
+	</h1>
+
+	{% for evenement in evenements %}
+<div class="row mt-3" id="even">
+	<div class="col-8">
+		<div class="text-center">
+			<h2>
+				{{ evenement.nom }}
+			</h2>
+		</div>
+		<a href="{{ path('evenement-details', {'slug':evenement.slug}) }}">
+                    <img src="{{ vich_uploader_asset(evenement, 'imageFile') }}" alt="" class="img-fluid">
+		</a>
+		<div class="mt-5" id="text">
+			{{ evenement.description|personal_trunc|raw }}
+		</div>
+	</div>
+	<div class="col-4 mt-5">
+		<div class="detail-even">
+			<div class="detail-date">
+                <div>
+                    <i class="far fa-calendar-alt"></i>
+                </div>
+                {{ evenement.dateDebut|date('d-m-Y') }}
+                au
+                {{ evenement.dateFin|date('d-m-Y') }}
+		    </div>
+            <div class="even-adresse">
+                <div>
+                    <div>
+						<i class="fas fa-map-marked-alt"></i>
+					</div>
+                    {{ evenement.adresse }}
+                </div>
+                <div>
+                    {{ evenement.codePostal }}
+                    {{ evenement.ville }}
+                </div>
+            </div>
+            <div class="even-prix">
+                <div>
+					<i class="far fa-money-bill-alt"></i>
+				</div>
+                {{ evenement.prix }}
+                €
+            </div>
+	    </div>
+    </div>
+    <div class="ms-2 mb-4">
+        <a class="btn btn-info" id="bouton-bleu" href="{{ path('evenement-details',{'slug': evenement.slug}) }}">
+            detail
+        </a>
+    </div>
+</div>
+{% endfor %}
+	<div class="d-flex justify-content-center">
+		{% do evenements.setPageRange(2) %}
+		{{ knp_pagination_render(evenements, 'base/pagination.html.twig') }}
+	</div>
+{% endblock %}

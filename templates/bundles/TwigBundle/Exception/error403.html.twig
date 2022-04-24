@@ -1,0 +1,12 @@
+{% extends "base.html.twig" %}
+
+{% block title %}Page 403{% endblock %}
+
+{% block body %}
+<img src="{{asset('error/error403.jpeg')}}" alt="">
+    {# <h1>accés interdit</h1>
+
+    <p>vous n'avez pas la permition de voir cette page</p>
+    <p>Erreur : {{ status_code }}</p>
+    <p><a href="{{ path('home')}}">rejoindre la page d'acceuil</a></p> #}
+{% endblock %}
